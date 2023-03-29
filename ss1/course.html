@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course</title>
+  </head>
+  <body>
+    <h1>Course</h1>
+    <script>
+      let courses = [
+        {
+          id: 1,
+          title: "ReactJS Tutorial",
+          rating: 4.2,
+        },
+        {
+          id: 2,
+          title: "Angular Tutorial",
+          rating: 2.5,
+        },
+        {
+          id: 3,
+          title: "VueJS Tutorial",
+          rating: 3.8,
+        },
+        {
+          id: 4,
+          title: "Java Tutorial",
+          rating: 4,
+        },
+        {
+          id: 5,
+          title: "JavaScript Tutorial",
+          rating: 3.5,
+        },
+      ];
+
+      //bai 1
+      let course1 = courses.filter((course) => {
+        return course.rating >= 4;
+      });
+      console.log(course1);
+
+      //bai 2
+      let totalCourse = courses.map((course) => {
+        if (course.rating<4)
+        return course.id + "-" + course.title + "-" + course.rating;
+      }).filter((course) => course !== undefined);
+      console.log(totalCourse);
+
+      //bai 3
+      let addedCourses = [
+        {
+          id: 6,
+          title: "PHP Tutorial",
+          rating: 3,
+        },
+        {
+          id: 7,
+          title: "C# Tutorial",
+          rating: 2,
+        },
+        {
+          id: 8,
+          title: "Docker Tutorial",
+          rating: 3.8,
+        },
+      ];
+    let newCourse = courses.concat(addedCourses);
+    console.log(newCourse);
+    </script>
+  </body>
+</html>
