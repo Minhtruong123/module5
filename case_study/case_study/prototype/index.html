@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/case_study/case_study/prototype/style.css">
+    <title>Furama</title>
+  </head>
+  <body>
+
+    <!-- header -->
+    <nav
+      class="navbar navbar-expand-lg fixed-top py-0"
+      style="background-color: rgb(45, 111, 99)"
+    >
+      <div class="container-fluid">
+        <a style="width: 5%; height: 5%" class="navbar-brand py-0" href="#">
+          <img
+            width="100%"
+            height="5%"
+            src="/case_study/case_study/prototype/img/FURAMA (1).png"
+            alt=""
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" style="height: 50px">
+              <a
+                class="nav-link active furama py-0 d-flex justify-content-center align-items-center px-3"
+                aria-current="page"
+                href="#"
+                >Furama</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link furama py-0 d-flex justify-content-center align-items-center px-3"
+                href="#"
+                >Facilities</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link furama py-0 d-flex justify-content-center align-items-center px-3"
+                href="#"
+                >Cuisines</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link furama py-0 d-flex justify-content-center align-items-center px-3"
+                href="#"
+              >
+                Entertainment</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link furama py-0 d-flex justify-content-center align-items-center px-3"
+                href="#"
+                >Offer</a
+              >
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle furama py-0 d-flex justify-content-center align-items-center px-3"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Manager
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Employee</a></li>
+                <li><a class="dropdown-item" href="#">Customer</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <!-- <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            /> -->
+            <!-- <button class="btn btn-outline-success" type="submit">
+              Search
+            </button> -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link furama py-0 d-flex justify-content-center align-items-center px-3"
+                  href="#"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- container -->
+    <!-- banner -->
+    <div class="slider position-relative">
+      <div class="slide active position-relative">
+        <img src="https://furamavietnam.com/wp-content/uploads/2019/07/Vietnam_Danang_Furama_Resort_Exterior_Ocean-Pool-6.jpg" alt="Slide 1" />
+        <div class="position-absolute banner-title">A CULINARY RESORT ON ONE OF THE SIX MOST LUXURIOUS BEACHES IN THE WORLD</div>
+      </div>
+      <div class="slide">
+        <img src="https://furamavietnam.com/wp-content/uploads/2018/07/Vietnam_Danang_Furama_Resort_Exterior-Furama-girl-with-pink-hat.jpg" alt="Slide 2" />
+        <div class="position-absolute banner-title">A CULINARY RESORT ON ONE OF THE SIX MOST LUXURIOUS BEACHES IN THE WORLD</div>
+      </div>
+      <div class="slide">
+        <img src="https://furamavietnam.com/wp-content/uploads/2018/07/Vietnam_Danang_Furama_Resort_Exterior_Courtyard.jpg" alt="Slide 3" />
+        <div class="position-absolute banner-title" >A CULINARY RESORT ON ONE OF THE SIX MOST LUXURIOUS BEACHES IN THE WORLD</div>
+      </div>
+      <div class="prev-btn">&#10094;</div>
+      <div class="next-btn">&#10095;</div>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <div class="booking position-relative d-flex">
+        <div class="d-flex align-items-center mx-2 ms-4" style="height: 100%; width: 18%;">
+          <input class="ps-2" style="height: 65%; border-radius: 10px; width: 100%;border: none;" type="date">
+        </div>
+        <div class="d-flex align-items-center mx-2" style="height: 100%; width: 18%;">
+          <input class="ps-2" style="height: 65%; border-radius: 10px; width: 100%;border: none;" type="date">
+        </div>
+        <div class="d-flex align-items-center mx-2" style="height: 100%; width: 18%;">
+          <input class="ps-2" style="height: 65%; border-radius: 10px; width: 100%;border: none;" type="text" placeholder="Promo code">
+        </div>
+        <div class="d-flex align-items-center mx-2" style="height: 100%; width: 18%; font-family: sans-serif;">
+          <input class="d-flex align-items-center justify-content-center" style="height: 65%; border-radius: 10px; width: 100%; font-size: 15px;border: none;background-color:rgb(184, 223, 215) ;" type="submit" value="CHECK AVAILABILITY">
+        </div>
+        <div class="d-flex align-items-center mx-2" style="height: 100%; width: 18%; font-family: sans-serif;">
+          <input class="d-flex align-items-center justify-content-center" style="height: 65%; border-radius: 10px; width: 100%; font-size: 15px;background-color:rgb(45, 111, 99); border: none; color: white;" type="submit" value="MODIFY & CANCEL">
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="height: 400px;">
+      <div class="col-4"></div>
+      <div class="col-4"></div>
+      <div class="col-4"></div>
+    </div>
+  
+
+
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  // Lấy danh sách các slide và nút bấm
+  var slides = document.querySelectorAll('.slide');
+  var prevBtn = document.querySelector('.prev-btn');
+  var nextBtn = document.querySelector('.next-btn');
+  var dots = document.querySelectorAll('.dot');
+  var currentIndex = 0;
+  
+  // Thêm sự kiện click cho nút prev
+  prevBtn.addEventListener('click', function() {
+    // Ẩn slide hiện tại
+    slides[currentIndex].classList.remove('active');
+    // Giảm chỉ số slide hiện tại, nếu đã đến slide đầu tiên thì quay lại slide cuối cùng
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    // Hiển thị slide mới
+    slides[currentIndex].classList.add('active');
+    // Thay đổi active dot tương ứng
+    updateDots();
+  });
+  
+  // Thêm sự kiện click cho nút next
+  nextBtn.addEventListener('click', function() {
+    // Ẩn slide hiện tại
+    slides[currentIndex].classList.remove('active');
+    // Tăng chỉ số slide hiện tại, nếu đã đến slide cuối cùng thì quay lại slide đầu tiên
+    currentIndex = (currentIndex + 1) % slides.length;
+    // Hiển thị slide mới
+    slides[currentIndex].classList.add('active');
+    // Thay đổi active dot tương ứng
+    updateDots();
+  });
+  
+  // Thêm sự kiện click cho các dot
+  dots.forEach(function(dot, index) {
+    dot.addEventListener('click', function() {
+      // Ẩn slide hiện tại
+      slides[currentIndex].classList.remove('active');
+      // Đặt chỉ số slide hiện tại tương ứng với dot click
+      currentIndex = index;
+      // Hiển thị slide mới
+      slides[currentIndex].classList.add('active');
+      // Thay đổi active dot tương ứng
+      updateDots});
+});
+
+// Hàm thay đổi active dot tương ứng với slide hiện tại
+function updateDots() {
+dots.forEach(function(dot, index) {
+dot.classList.remove('active');
+if (index === currentIndex) {
+dot.classList.add('active');
+}
+});
+}
+
+// Tự động chuyển slide sau 5 giây
+setInterval(function() {
+// Ẩn slide hiện tại
+slides[currentIndex].classList.remove('active');
+// Tăng chỉ số slide hiện tại, nếu đã đến slide cuối cùng thì quay lại slide đầu tiên
+currentIndex = (currentIndex + 1) % slides.length;
+// Hiển thị slide mới
+slides[currentIndex].classList.add('active');
+// Thay đổi active dot tương ứng
+updateDots();
+}, 5000);
+});
+    </script>
+  </body>
+</html>
