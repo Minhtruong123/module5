@@ -6,18 +6,18 @@ class Header extends Component {
       <>
         <nav
           className="navbar navbar-expand-lg fixed-top py-0"
-          style="background-color: rgb(45, 111, 99)"
+          style={{ backgroundColor: 'rgb(45, 111, 99)' }}
         >
-          <div className="container-fluid" style="padding-left: 4%">
+          <div className="container-fluid" style={{paddingLeft: '4%'}}>
             <a
-              style="width: 5%; height: 5%"
+              style={{ width: '5%', height: '5%' }}
               className="navbar-brand py-0"
               href="#"
             >
               <img
                 width="100%"
                 height="5%"
-                src="/case_study/case_study/prototype/img/FURAMA (1).png"
+                src="/img/FURAMA (1).png"
                 alt=""
               />
             </a>
@@ -37,9 +37,9 @@ class Header extends Component {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item" style="height: 50px">
+                <li className="nav-item" style={{height: '50px'}}>
                   <a
-                    className="nav-link active furama py-0 d-flex justify-content-center align-items-center px-3"
+                    className="nav-link furama py-0 d-flex justify-content-center align-items-center px-3"
                     aria-current="page"
                     href="#"
                   >

@@ -6,7 +6,7 @@ class Footer extends Component {
       <>
         <footer
           className="relative pt-8 pb-6"
-          style="background-color: #addccf;"
+          style={{backgroundColor: '#addccf'}}
         >
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap text-left lg:text-left">
