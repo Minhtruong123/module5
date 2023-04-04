@@ -15,23 +15,26 @@ class Facilities extends Component {
         <div>
           <div
             className="row mx-0 container-fluid"
-            style={{height: '500px', fontFamily: 'sans-serif'}}
+            style={{height: '1600px', fontFamily: 'sans-serif'}}
           >
-            <div className="col-4 d-flex justify-content-center align-items-center">
+            {
+              Facility.map((faciliti,index) => {
+                return(
+                  <div key={index} className="col-4 d-flex justify-content-center align-items-center">
               <div
                 className="card"
                 style={{width: '100%', boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'}}
               >
                 <img
-                  src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
+                  src={faciliti.img}
                   className="card-img-top"
                 />
                 <div className="card-body">
                   <h5 className="card-title" style={{fontWeight: 'bold'}}>
-                    OCEAN SUITE
+                    {faciliti.nameFacility}
                   </h5>
                   <p className="card-text">
-                    Room size: 85.8 m<sup>2</sup>
+                    Room size: {faciliti.roomSize} m<sup>2</sup>
                   </p>
                   <div className="d-flex justify-content-center">
                     <a
@@ -51,299 +54,10 @@ class Facilities extends Component {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-4 d-flex justify-content-center align-items-center">
-              <div
-                className="card"
-                style={{width: '100%', boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'}}
-              >
-                <img
-                  src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg"
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{fontWeight: 'bold'}}>
-                    OCEAN STUDIO SUITE
-                  </h5>
-                  <p className="card-text">
-                    Room size: 40.1 m<sup>2</sup>
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="#"
-                      className="btn btn-primary mt-2 me-2"
-                      style={{width: '20%'}}
-                    >
-                      Edit
-                    </a>
-                    <a
-                      href="#"
-                      className="btn btn-danger mt-2"
-                      style={{width: '20%'}}
-                    >
-                      Delete
-                    </a>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-4 d-flex justify-content-center align-items-center">
-              <div
-                className="card"
-                style={{width: '100%', boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'}}
-              >
-                <img
-                  src="https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-450x291.jpg"
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{fontWeight: 'bold'}}>
-                    OCEAN DELUXE
-                  </h5>
-                  <p className="card-text">
-                    Room size: 43.7 m<sup>2</sup>
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="#"
-                      className="btn btn-primary mt-2 me-2"
-                      style={{width: '20%'}}
-                    >
-                      Edit
-                    </a>
-                    <a
-                      href="#"
-                      className="btn btn-danger mt-2"
-                      style={{width: '20%'}}
-                    >
-                      Delete
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="row mx-0 container-fluid"
-            style={{height: '500px', fontFamily: 'sans-serif'}}
-          >
-            <div className="col-4 d-flex justify-content-center align-items-center">
-              <div
-                className="card"
-                style={{width: '100%',boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'}}
-              >
-                <img
-                  src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-F-370x239.jpg"
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{fontWeight: 'bold'}}>
-                    LAGOON SUPERIOR
-                  </h5>
-                  <p className="card-text">
-                    Room size: 40.1 m<sup>2</sup>
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="#"
-                      className="btn btn-primary mt-2 me-2"
-                      style={{width: '20%'}}
-                    >
-                      Edit
-                    </a>
-                    <a
-                      href="#"
-                      className="btn btn-danger mt-2"
-                      style={{width: '20%'}}
-                    >
-                      Delete
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-4 d-flex justify-content-center align-items-center">
-              <div
-                className="card"
-                style={{width: '100%',boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'}}
-              >
-                <img
-                  src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Garden-Superior-TwinBed-1-F-370x239.jpg"
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{fontWeight: 'bold'}}>
-                    GARDEN SUPERIOR
-                  </h5>
-                  <p className="card-text">
-                    Room size: 40.1 m<sup>2</sup>
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="#"
-                      className="btn btn-primary mt-2 me-2"
-                      style={{width: '20%'}}
-                    >
-                      Edit
-                    </a>
-                    <a
-                      href="#"
-                      className="btn btn-danger mt-2"
-                      style={{width: '20%'}}
-                    >
-                      Delete
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-4 d-flex justify-content-center align-items-center">
-              <div
-                className="card"
-                style={{width: '100%',boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'}}
-              >
-                <img
-                  src="https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Garden-Deluxe-5-450x291.jpg"
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{fontWeight: 'bold'}}>
-                    GARDEN DELUXE
-                  </h5>
-                  <p className="card-text">
-                    Room size: 43.7 m<sup>2</sup>
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="#"
-                      className="btn btn-primary mt-2 me-2"
-                      style={{width: '20%'}}
-                    >
-                      Edit
-                    </a>
-                    <a
-                      href="#"
-                      className="btn btn-danger mt-2"
-                      style={{width: '20%'}}
-                    >
-                      Delete
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="row mx-0 container-fluid"
-            style={{height: '500px', fontFamily: 'sans-serif'}}
-          >
-            <div className="col-4 d-flex justify-content-center align-items-center">
-              <div
-                className="card"
-                style={{width: '100%',boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'}}
-              >
-                <img
-                  src="https://furamavietnam.com/wp-content/uploads/2018/03/Presidential-Suite-F-370x239.jpg"
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{fontWeight: 'bold'}}>
-                    PRESIDENTIAL SUITE
-                  </h5>
-                  <p className="card-text">
-                    Room size: 130 m<sup>2</sup>
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="#"
-                      className="btn btn-primary mt-2 me-2"
-                      style={{width: '20%'}}
-                    >
-                      Edit
-                    </a>
-                    <a
-                      href="#"
-                      className="btn btn-danger mt-2"
-                      style={{width: '20%'}}
-                    >
-                      Delete
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-4 d-flex justify-content-center align-items-center">
-              <div
-                className="card"
-                style={{width: '100%',boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'}}
-              >
-                <img
-                  src="https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg"
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{fontWeight: 'bold'}}>
-                    BEACH FRONT VILLAS
-                  </h5>
-                  <p className="card-text">
-                    Room size: 900 m<sup>2</sup>
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="#"
-                      className="btn btn-primary mt-2 me-2"
-                      style={{width: '20%'}}
-                    >
-                      Edit
-                    </a>
-                    <a
-                      href="#"
-                      className="btn btn-danger mt-2"
-                      style={{width: '20%'}}
-                    >
-                      Delete
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-4 d-flex justify-content-center align-items-center">
-              <div
-                className="card"
-                style={{width: '100',boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'}}
-              >
-                <img
-                  src="https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas-F-370x239.jpg"
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{fontWeight: 'bold'}}>
-                    POOL VILLAS
-                  </h5>
-                  <p className="card-text">
-                    Room size: 320 m<sup>2</sup>
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="#"
-                      className="btn btn-primary mt-2 me-2"
-                      style={{width: '20%'}}
-                    >
-                      Edit
-                    </a>
-                    <a
-                      href="#"
-                      className="btn btn-danger mt-2"
-                      style={{width: '20%'}}
-                    >
-                      Delete
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+                )
+              })
+            }
           </div>
 
           <nav
@@ -380,7 +94,7 @@ class Facilities extends Component {
           </nav>
         </div>
 
-        <div className="row px-0 pt-5" style={{height: '250px'}}>
+        <div className="row px-0 mx-0 pt-5" style={{height: '250px'}}>
           <div className="col-12">
             <h2
               className="d-flex justify-content-center"
