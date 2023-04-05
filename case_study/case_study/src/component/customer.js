@@ -1,4 +1,4 @@
-const customer = () => {
+const Customer = () => {
   return (
     <>
       <div className="container-fluid px-0 mt-5 position-relative">
@@ -97,3 +97,4 @@ const customer = () => {
     </>
   );
 };
+export default Customer;
