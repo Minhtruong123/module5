@@ -10,8 +10,8 @@ function addNewBook() {
           onSubmit={(values, { resetForm }) => {
             const create = async () => {
               await bookService.save(values);
-              let result = await bookService.findAll();
-              setBookList(result)
+            //   let result = await bookService.findAll();
+            //   setBookList(result)
               resetForm();
             };
             create();

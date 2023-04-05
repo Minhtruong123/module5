@@ -27,7 +27,7 @@ export const deleteBook = async (id) => {
 
 export const editBook = async (id,book) => {
     try{
-        await axios.delete(`https://my-json-server.typicode.com/codegym-vn/mock-api-books/books/${id}`,{...book});
+        await axios.delete(`https://my-json-server.typicode.com/codegym-vn/mock-api-books/books/${id}`);
     }catch (e){
         console.log(e);
     }

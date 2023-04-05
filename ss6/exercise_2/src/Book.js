@@ -2,6 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Field, Formik, Form } from "formik";
 import * as bookService from "./bookService";
+import {
+    BrowserRouter as
+    NavLink,
+  } from "react-router-dom";
 
 function Book() {
   const [bookList, setBookList] = useState([]);
@@ -26,51 +30,49 @@ function Book() {
 
   return (
     <div>
-      <div>
-        <h1>Library</h1>
-        <a className="btn btn-primary" href="#">
-          Add a new Book
-        </a>
-      </div>
+            <div>
+              <h1>Library</h1>
+              <NavLink className="btn btn-primary" to="/addNewBook">
+                Add a new Book
+              </NavLink>
+            </div>
 
-      <div>
-        <table className="table table-border table-striped">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Quantity</th>
-              <th colSpan={2}>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bookList.map((book, index) => (
-              <tr key={index}>
-                <th>{book.title}</th>
-                <th>{book.quantity}</th>
-                <th>
-                  <a
-                    className="btn btn-primary"
-                    onClick={() => handleEdit(book.id, book)}
-                  >
-                    Edit
-                  </a>
-                </th>
-                <th>
-                  <a
-                    className="btn btn-danger"
-                    onClick={() => handleDelete(book.id)}
-                  >
-                    Delete
-                  </a>
-                </th>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      
-    </div>
+            <div>
+              <table className="table table-border table-striped">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Quantity</th>
+                    <th colSpan={2}>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bookList.map((book, index) => (
+                    <tr key={index}>
+                      <th>{book.title}</th>
+                      <th>{book.quantity}</th>
+                      <th>
+                        <a
+                          className="btn btn-primary"
+                          onClick={() => handleEdit(book.id)}
+                        >
+                          Edit
+                        </a>
+                      </th>
+                      <th>
+                        <a
+                          className="btn btn-danger"
+                          onClick={() => handleDelete(book.id)}
+                        >
+                          Delete
+                        </a>
+                      </th>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
   );
 }
 
