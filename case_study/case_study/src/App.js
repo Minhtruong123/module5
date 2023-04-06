@@ -10,7 +10,7 @@ import ContractPage from './component/contractPage'
 function App() {
   return (
     <div className="App">
-      <CustomerPage/>
+      <ContractPage/>
     </div>
   );
 }

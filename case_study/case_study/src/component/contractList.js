@@ -1,3 +1,6 @@
+import ContractData from "./contractData";
+import CustomerList from "./customerList";
+import Facility from './FacilityData'
 function ContractList() {
   return (
     <>
@@ -20,75 +23,49 @@ function ContractList() {
           <table classname="table table-border table-striped">
             <thead>
               <tr>
-                <th>Id Contract</th>
-                <th>Name Customer</th>
-                <th>Number Of Guests</th>
+                <th>Id</th>
+                <th>Customer Name</th>
+                <th>Facility</th>
                 <th>Check In</th>
                 <th>Check Out</th>
-                <th>Email</th>
-                <th>Id Room</th>
+                <th>Money</th>
                 <th />
                 <th />
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>CO-0001</td>
-                <td>Duong Minh Truong</td>
-                <td>3</td>
-                <td>30/03/2023</td>
-                <td>05/04/2023</td>
-                <td>duongminhtruong1234@gmail.com</td>
-                <td>RO-0001</td>
-                <td>
-                  <button type="button" classname="btn btn-primary">
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button type="button" classname="btn btn-danger">
-                    Delete
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>CO-0002</td>
-                <td>Duong Minh Truong</td>
-                <td>8</td>
-                <td>05/04/2023</td>
-                <td>10/04/2023</td>
-                <td>duongminhtruong1234@gmail.com</td>
-                <td>VI-0001</td>
-                <td>
-                  <button type="button" classname="btn btn-primary">
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button type="button" classname="btn btn-danger">
-                    Delete
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>CO-0003</td>
-                <td>Duong Minh Truong</td>
-                <td>5</td>
-                <td>01/04/2023</td>
-                <td>08/04/2023</td>
-                <td>duongminhtruong1234@gmail.com</td>
-                <td>VI-0002</td>
-                <td>
-                  <button type="button" classname="btn btn-primary">
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button type="button" classname="btn btn-danger">
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              {ContractData.map((contract, index) => (
+                <tr>
+                  <td>{contract.contractId}</td>
+                  <td>
+                    {
+                      CustomerList.filter((customer) => (
+                          customer.id === contract.customerId
+                        ))[0].name
+                    }
+                  </td>
+                  <td>
+                  {
+                      Facility.filter((facility) => (
+                          facility.id === contract.facilityId
+                        ))[0].nameFacility
+                    }
+                  </td>
+                  <td>{contract.checkIn}</td>
+                  <td>{contract.checkOut}</td>
+                  <td>{contract.price}</td>
+                  <td>
+                    <button type="button" classname="btn btn-primary">
+                      Edit
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" classname="btn btn-danger">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

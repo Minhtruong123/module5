@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Facility from "./FacilityData";
 
 class Facilities extends Component {
   render() {
@@ -117,69 +118,3 @@ class Facilities extends Component {
 }
 
 export default Facilities;
-
-const Facility = [
-  {
-    img: "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
-    nameFacility: "OCEAN SUITE",
-    roomSize: "85.8",
-    price: "300",
-    maxPerson: "6",
-  },
-  {
-    img: "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg",
-    nameFacility: "OCEAN STUDIO SUITE",
-    roomSize: "40.1",
-    price: "200",
-    maxPerson: "4",
-  },
-  {
-    img: "https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-450x291.jpg",
-    nameFacility: "OCEAN DELUXE",
-    roomSize: "43.7",
-    price: "220",
-    maxPerson: "4",
-  },
-  {
-    img: "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-F-370x239.jpg",
-    nameFacility: "LAGOON SUPERIOR",
-    roomSize: "40.1",
-    price: "220",
-    maxPerson: "4",
-  },
-  {
-    img: "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Garden-Superior-TwinBed-1-F-370x239.jpg",
-    nameFacility: "GARDEN SUPERIOR",
-    roomSize: "40.1",
-    price: "220",
-    maxPerson: "4",
-  },
-  {
-    img: "https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Garden-Deluxe-5-450x291.jpg",
-    nameFacility: "GARDEN DELUXE",
-    roomSize: "40.1",
-    price: "220",
-    maxPerson: "4",
-  },
-  {
-    img: "https://furamavietnam.com/wp-content/uploads/2018/03/Presidential-Suite-F-370x239.jpg",
-    nameFacility: "PRESIDENTIAL SUITE",
-    roomSize: "130",
-    price: "500",
-    maxPerson: "10",
-  },
-  {
-    img: "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg",
-    nameFacility: "BEACH FRONT VILLAS",
-    roomSize: "900",
-    price: "1500",
-    maxPerson: "20",
-  },
-  {
-    img: "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas-F-370x239.jpg",
-    nameFacility: "POOL VILLAS",
-    roomSize: "320",
-    price: "800",
-    maxPerson: "13",
-  },
-];
