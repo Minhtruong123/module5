@@ -1,7 +1,7 @@
-import { ErrorMessage, Field, Formik, Form } from "formik";
+import { Field, Formik, Form } from "formik";
 import * as bookService from "./bookService";
-import {useState, useEffect} from 'react';
-import React from 'react'
+import { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 
 function EditBook() {
@@ -16,11 +16,13 @@ function EditBook() {
     fetchApi();
   }, []);
 
-  if (!bookData){return null}
+  if (!bookData) {
+    return null;
+  }
 
   return (
     <div>
-        <Formik
+      <Formik
         initialValues={{ title: bookData?.title, quantity: bookData?.quantity }}
         onSubmit={(values, { resetForm }) => {
           const update = async () => {
@@ -54,7 +56,7 @@ function EditBook() {
         </Form>
       </Formik>
     </div>
-  )
+  );
 }
 
 export default EditBook;

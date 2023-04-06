@@ -21,11 +21,6 @@ function Book() {
     let result = await bookService.findAll();
     setBookList(result);
   };
-
-  // const handleEdit = async (id, book) => {
-  //   setBookData(book);
-  // };
-
   return (
     <div>
             <div>

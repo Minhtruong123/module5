@@ -1,3 +1,4 @@
+import CutomerList from "./customerList";
 const Customer = () => {
   return (
     <>
@@ -6,11 +7,11 @@ const Customer = () => {
         <div className="position-absolute facility-title">CUSTOMERS</div>
       </div>
 
-      <div className="row mx-0 mt-5" style={{height: '500px'}}>
+      <div className="row mx-0 mt-5" style={{ height: "500px" }}>
         <div className="col-12 px-0">
           <h2
             className="mb-3"
-            style={{color: '#cbbe73', fontSize: '27px', textAlign: 'center'}}
+            style={{ color: "#cbbe73", fontSize: "27px", textAlign: "center" }}
           >
             Customer List
           </h2>
@@ -30,66 +31,28 @@ const Customer = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Duong Minh Truong</td>
-                <td>07/05/2003</td>
-                <td>Male</td>
-                <td>201865361</td>
-                <td>0905551127</td>
-                <td>duongminhtruong1234@gmail.com</td>
-                <td>Diamond</td>
-                <td>Villa</td>
-                <td>
-                  <button type="button" className="btn btn-primary">
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button type="button" className="btn btn-danger">
-                    Delete
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Duong Minh Truong</td>
-                <td>07/05/2003</td>
-                <td>Male</td>
-                <td>201865361</td>
-                <td>0905551127</td>
-                <td>duongminhtruong1234@gmail.com</td>
-                <td>Diamond</td>
-                <td>Villa</td>
-                <td>
-                  <button type="button" className="btn btn-primary">
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button type="button" className="btn btn-danger">
-                    Delete
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Duong Minh Truong</td>
-                <td>07/05/2003</td>
-                <td>Male</td>
-                <td>201865361</td>
-                <td>0905551127</td>
-                <td>duongminhtruong1234@gmail.com</td>
-                <td>Diamond</td>
-                <td>Villa</td>
-                <td>
-                  <button type="button" className="btn btn-primary">
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button type="button" className="btn btn-danger">
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              {CutomerList.map((customer, index) => (
+                <tr>
+                  <td>{customer.name}</td>
+                  <td>{customer.dateOfBirth}</td>
+                  <td>{customer.gender}</td>
+                  <td>{customer.identity}</td>
+                  <td>{customer.phoneNumber}</td>
+                  <td>{customer.gmail}</td>
+                  <td>{customer.typeCustomer}</td>
+                  <td>{customer.address}</td>
+                  <td>
+                    <button type="button" className="btn btn-primary">
+                      Edit
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" className="btn btn-danger">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
