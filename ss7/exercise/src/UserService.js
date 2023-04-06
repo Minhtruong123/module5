@@ -1,20 +1,16 @@
-import React from 'react'
-import axios from 'axios'
+import request from './config/http_request'
 
-export const findAll = async () => {
-  try{
-    const result = await axios.get('https://jsonplaceholder.typicode.com/users');
-    return result.data;
-  }catch(error){
-    console.log(error);
-  }
+const findAll = () => {
+    return request.get('/users')
 }
 
-export const deleteUser = async (id) => {
-  try{
-    await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
-    alert("Delete success")
-  }catch(e){
-    console.log(e);
-  }
+const remove = async (id) => {
+    return request.delete(`/users/${id}`)
 }
+
+const userManagementService = {
+    findAll,
+    remove
+}
+
+export default userManagementService;

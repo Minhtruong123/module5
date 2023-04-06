@@ -1,20 +1,19 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import * as UserService from "./UserService";
+// import * as UserService from "./UserService";
+import { useDispatch, useSelector } from 'react-redux'
+import { userDeleteAction, userListAction } from './redux/action/action'
 
 function User() {
-  const [userList, setUserList] = useState([]);
-  useEffect(() => {
-    const fetchApi = async () => {
-      let result = await UserService.findAll();
-      setUserList(result);
-    };
-    fetchApi();
-  });
+  let users = useSelector(state => state.userManagementState)
+  const dispatch = useDispatch();
+  useEffect (() => {
+    users = dispatch(userListAction())
+  },[])
 
-  const handleDelete = async (id) => {
-    await UserService.deleteUser(id);
-  };
+  // const handleDelete = async (id) => {
+  //   await UserService.deleteUser(id);
+  // };
 
   return (
     <div>
@@ -43,7 +42,7 @@ function User() {
                 </tr>
               </thead>
               <tbody>
-                {userList.map((user, index) => (
+                {users.map((user, index) => (
                   <tr key={index}>
                     <td>{user.id}</td>
                     <td>{user.username}</td>
@@ -52,7 +51,7 @@ function User() {
                     <td>
                       <button
                         className="btn btn-danger"
-                        onClick={() => handleDelete(user.id)}
+                        onClick={() => dispatch(userDeleteAction(user.id))}
                       >
                         Delete
                       </button>
