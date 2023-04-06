@@ -1,20 +1,30 @@
-import React from "react";
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import * as bookService from "./bookService";
-import {useState} from 'react';
-
+import {useState, useEffect} from 'react';
 import React from 'react'
+import { useParams } from "react-router-dom";
 
-function editBook() {
+function EditBook() {
+  const [bookData, setBookData] = useState();
+  const param = useParams();
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      let result = await bookService.findById(param.id);
+      setBookData(result);
+    };
+    fetchApi();
+  }, []);
+
+  if (!bookData){return null}
+
   return (
     <div>
         <Formik
-        initialValues={{ title: bookData.title, quantity: bookData.quantity }}
+        initialValues={{ title: bookData?.title, quantity: bookData?.quantity }}
         onSubmit={(values, { resetForm }) => {
           const update = async () => {
-            await bookService.editBook(bookData.id, values);
-            let result = await bookService.findAll();
-            setBookList(result);
+            await bookService.editBook(bookData?.id, values);
             resetForm();
           };
           update();
@@ -47,4 +57,4 @@ function editBook() {
   )
 }
 
-export default editBook
+export default EditBook;

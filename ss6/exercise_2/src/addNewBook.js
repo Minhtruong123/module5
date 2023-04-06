@@ -2,7 +2,7 @@ import React from "react";
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import * as bookService from "./bookService";
 
-function addNewBook() {
+function AddNewBook() {
   return (
     <div>
       <Formik
@@ -10,9 +10,8 @@ function addNewBook() {
           onSubmit={(values, { resetForm }) => {
             const create = async () => {
               await bookService.save(values);
-            //   let result = await bookService.findAll();
-            //   setBookList(result)
               resetForm();
+              
             };
             create();
           }}
@@ -44,4 +43,4 @@ function addNewBook() {
   );
 }
 
-export default addNewBook;
+export default AddNewBook;

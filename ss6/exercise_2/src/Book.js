@@ -1,15 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Field, Formik, Form } from "formik";
 import * as bookService from "./bookService";
 import {
-    BrowserRouter as
-    NavLink,
+  Link,
+  NavLink
   } from "react-router-dom";
 
 function Book() {
   const [bookList, setBookList] = useState([]);
-  const [bookData, setBookData] = useState({});
   useEffect(() => {
     const fetchApi = async () => {
       let result = await bookService.findAll();
@@ -24,17 +22,17 @@ function Book() {
     setBookList(result);
   };
 
-  const handleEdit = async (id, book) => {
-    setBookData(book);
-  };
+  // const handleEdit = async (id, book) => {
+  //   setBookData(book);
+  // };
 
   return (
     <div>
             <div>
               <h1>Library</h1>
-              <NavLink className="btn btn-primary" to="/addNewBook">
+              <Link className="btn btn-primary" to="/addNewBook">
                 Add a new Book
-              </NavLink>
+              </Link>
             </div>
 
             <div>
@@ -52,12 +50,12 @@ function Book() {
                       <th>{book.title}</th>
                       <th>{book.quantity}</th>
                       <th>
-                        <a
+                        <Link
                           className="btn btn-primary"
-                          onClick={() => handleEdit(book.id)}
+                          to={`/editBook/${book.id}`}
                         >
                           Edit
-                        </a>
+                        </Link>
                       </th>
                       <th>
                         <a
