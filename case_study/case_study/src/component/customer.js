@@ -1,4 +1,5 @@
 import CutomerList from "./customerList";
+import TypeCustomer from "./TypeCustomer";
 const Customer = () => {
   return (
     <>
@@ -33,14 +34,18 @@ const Customer = () => {
             </thead>
             <tbody>
               {CutomerList.map((customer, index) => (
-                <tr>
+                <tr key={index}>
                   <td>{customer.name}</td>
                   <td>{customer.dateOfBirth}</td>
                   <td>{customer.gender}</td>
                   <td>{customer.identity}</td>
                   <td>{customer.phoneNumber}</td>
                   <td>{customer.gmail}</td>
-                  <td>{customer.typeCustomer}</td>
+                  <td>
+                    {TypeCustomer.filter((type) => (
+                      type.id === customer.typeCustomer
+                    ))[0].name}
+                    </td>
                   <td>{customer.address}</td>
                   <td>
                     <button type="button" className="btn btn-primary">
