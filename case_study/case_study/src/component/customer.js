@@ -15,6 +15,7 @@ const Customer = () => {
           >
             Customer List
           </h2>
+          <a className="btn btn-primary float-start">Back to the List</a>
           <table className="table table-border table-striped">
             <thead>
               <tr>
