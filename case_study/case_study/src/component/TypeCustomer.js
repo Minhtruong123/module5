@@ -1,7 +1,7 @@
 const TypeCustomer = [
     {
         id: 1,
-        name: "Bronze"
+        name: "Member"
     },
     {
         id: 2,

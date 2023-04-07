@@ -12,15 +12,15 @@ function ContractList() {
         <div className="position-absolute facility-title">CONTRACT LIST</div>
       </div>
 
-      <div classname="row mx-0 mt-5" style={{ height: 500 }}>
-        <div classname="col-12 px-0">
+      <div className="row mx-0 mt-5" style={{ height: 500 }}>
+        <div className="col-12 px-0">
           <h2
-            classname="mb-3"
+            className="mb-3"
             style={{ color: "#cbbe73", fontSize: 27, textAlign: "center" }}
           >
             Contract List
           </h2>
-          <table classname="table table-border table-striped">
+          <table className="table table-border table-striped">
             <thead>
               <tr>
                 <th>Id</th>
@@ -55,12 +55,12 @@ function ContractList() {
                   <td>{contract.checkOut}</td>
                   <td>{contract.price}</td>
                   <td>
-                    <button type="button" classname="btn btn-primary">
+                    <button type="button" className="btn btn-primary">
                       Edit
                     </button>
                   </td>
                   <td>
-                    <button type="button" classname="btn btn-danger">
+                    <button type="button" className="btn btn-danger">
                       Delete
                     </button>
                   </td>

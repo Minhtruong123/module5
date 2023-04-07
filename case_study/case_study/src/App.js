@@ -6,11 +6,16 @@ import EditFacility from './component/editFacility'
 import FacilitiesPage from './component/facilitiesPage';
 import CustomerPage from './component/customerPage';
 import ContractPage from './component/contractPage'
-
+import AddFacility from './component/addFacility'
+import CreateCustomer from './component/createCustomer';
+import EditCustomer from './component/editCustomer';
+import Home from './component/home';
 function App() {
   return (
     <div className="App">
-      <ContractPage/>
+      <Header/>
+      <Home/>
+      <Footer/>
     </div>
   );
 }

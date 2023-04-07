@@ -1,15 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
 // import * as UserService from "./UserService";
-import { useDispatch, useSelector } from 'react-redux'
-import { userDeleteAction, userListAction } from './redux/action/action'
+import { useDispatch, useSelector } from "react-redux";
+import { userDeleteAction, userListAction } from "./redux/action/action";
 
 function User() {
-  let users = useSelector(state => state.userManagementState)
+  let users = useSelector((state) => state.userManagementState);
   const dispatch = useDispatch();
-  useEffect (() => {
-    users = dispatch(userListAction())
-  },[])
+  useEffect(() => {
+    users = dispatch(userListAction());
+  }, []);
 
   // const handleDelete = async (id) => {
   //   await UserService.deleteUser(id);
