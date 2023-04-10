@@ -1,41 +1,58 @@
-import FreeService from "./FreeService";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Formik, Form } from "formik";
-import TypeCustomer from "./TypeCustomer";
+import * as customerService from "../service/customerService";
+import { useParams } from "react-router-dom";
 
 function EditCustomer() {
   const [date,setDate] =useState()
+  const [customer, setCustomer] = useState();
+  const [typeCustomerList, setTypeCustomerList] = useState([])
+  const param = useParams();
   const handleDate = (event) => {
     setDate(event);
+  }
+  useEffect(() => {
+    const fetchApi = async () => {
+        const result = customerService.findById(param.id);
+        const result2= customerService.findAllTypeCustomer();
+        setCustomer(result);
+        setTypeCustomerList(result2);
+    }
+    fetchApi();
+  },[])
+
+  if (!customer){
+    return null;
   }
 
   return (
     <>
-      <div class="container-fluid px-0 position-relative">
+      <div className="container-fluid px-0 position-relative">
         <img
           src="https://furamavietnam.com/wp-content/uploads/2018/08/banner01.jpg?id=1433"
           alt=""
         />
-        <div class="position-absolute facility-title">EDIT CUSTOMER</div>
+        <div className="position-absolute facility-title">EDIT CUSTOMER</div>
       </div>
 
-      <div class="row mx-0 contain" style={{ height: "800px" }}>
-        <div class="col-12">
+      <div className="row mx-0 contain" style={{ height: "800px" }}>
+        <div className="col-12">
           <Formik
             initialValues={{
-              name: "",
-              dateOfBirth: "",
-              gender: "",
-              identity: "",
-              phoneNumber: "",
-              email: "",
-              address: "",
+              nameCustomer: customer.name,
+              dateOfBirth: customer.dateOfBirth,
+              gender: customer.gender,
+              identity: customer.identity,
+              phoneNumber: customer.phoneNumber,
+              email: customer.gmail,
+              address: customer.address,
+              typeCustomer : customer.typeCustomer
             }}
             validationSchema={Yup.object({
-              name: Yup.string()
+              nameCustomer: Yup.string()
                 .required("Required.")
                 .matches(
                   /^[A-Z][a-z]*(\s[A-Z][a-z]*)*$/,
@@ -58,9 +75,9 @@ function EditCustomer() {
             })}
             onSubmit={(values, { setSubmitting }) => {}}
           >
-            <Form action="" class="d-flex justify-content-center">
+            <Form action="" className="d-flex justify-content-center">
               <div
-                class="card"
+                className="card"
                 style={{
                   width: "30%",
                   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
@@ -68,7 +85,7 @@ function EditCustomer() {
                   marginBottom: "100px",
                 }}
               >
-                <div class="card-body">
+                <div className="card-body">
                   <div className="d-flex mb-3 row">
                     <div className="col-6 pe-0 d-flex align-items-center">
                       <h5 className="card-title" style={{ fontWeight: "bold" }}>
@@ -80,10 +97,10 @@ function EditCustomer() {
                         type="text"
                         style={{ borderRadius: 5 }}
                         placeholder="Name"
-                        name="name"
+                        name="nameCustomer"
                       />
                       <ErrorMessage
-                        name="name"
+                        name="nameCustomer"
                         component="span"
                         className="form-err"
                       />
@@ -250,8 +267,8 @@ function EditCustomer() {
                         name="typeCustomer"
                         render={() => (
                           <select style={{ borderRadius: 5, width: "94%" }}>
-                            {TypeCustomer.map((type) => (
-                              <option value={type.name} index={type.id}>
+                            {typeCustomerList.map((type) => (
+                              <option value={type.id} index={type.id}>
                                 {type.name}
                               </option>
                             ))}
@@ -260,7 +277,7 @@ function EditCustomer() {
                       />
                     </div>
                   </div>
-                  <input type="submit" class="btn btn-primary" value="Add" />
+                  <input type="submit" className="btn btn-primary" value="Add" />
                 </div>
               </div>
             </Form>

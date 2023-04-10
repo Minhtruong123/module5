@@ -38,7 +38,7 @@ const students = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <table class="table table-border">
+    <table className="table table-border">
       <thead>
         <tr>
           <th>Company</th>

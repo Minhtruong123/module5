@@ -1,29 +1,40 @@
-import FreeService from "./FreeService";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Formik, Form } from "formik";
-import TypeCustomer from "./TypeCustomer";
+import { Link } from "react-router-dom";
+import * as customerService from "../service/customerService";
 
 function CreateCustomer() {
-  const [date,setDate] =useState()
-  const handleDate = (event) => {
-    setDate(event);
-  }
+  const [customerTypeList, setCustomerTypeList] = useState();
+  // const [date, setDate] = useState();
 
+  useEffect(() => {
+    const fetchApi = async () => {
+      const result = await customerService.findAllTypeCustomer();
+      setCustomerTypeList(result);
+    };
+    fetchApi();
+  }, []);
+  if (!customerTypeList) {
+    return null;
+  }
   return (
     <>
-      <div class="container-fluid px-0 mt-5 position-relative">
+      <div className="container-fluid px-0 mt-5 position-relative">
         <img
           src="https://furamavietnam.com/wp-content/uploads/2018/08/banner01.jpg?id=1433"
           alt=""
         />
-        <div class="position-absolute facility-title">CREATE CUSTOMER</div>
+        <div className="position-absolute facility-title">CREATE CUSTOMER</div>
+        <Link to={"/customer"} className="btn btn-primary float-start">
+          Back to the List
+        </Link>
       </div>
 
-      <div class="row mx-0 contain" style={{ height: "800px" }}>
-        <div class="col-12">
+      <div className="row mx-0 contain" style={{ height: "800px" }}>
+        <div className="col-12">
           <Formik
             initialValues={{
               name: "",
@@ -33,6 +44,7 @@ function CreateCustomer() {
               phoneNumber: "",
               email: "",
               address: "",
+              typeCustomer: customerTypeList[0]?.id,
             }}
             validationSchema={Yup.object({
               name: Yup.string()
@@ -56,11 +68,16 @@ function CreateCustomer() {
                 .email("Invalid email format."),
               address: Yup.string().required("Required."),
             })}
-            onSubmit={(values, { setSubmitting }) => {}}
+            onSubmit={(values, {}) => {
+              const createCustomer = async () => {
+                await customerService.createCustomer(values);
+              };
+              createCustomer();
+            }}
           >
-            <Form action="" class="d-flex justify-content-center">
+            <Form action="" className="d-flex justify-content-center">
               <div
-                class="card"
+                className="card"
                 style={{
                   width: "30%",
                   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
@@ -68,7 +85,7 @@ function CreateCustomer() {
                   marginBottom: "100px",
                 }}
               >
-                <div class="card-body">
+                <div className="card-body">
                   <div className="d-flex mb-3 row">
                     <div className="col-6 pe-0 d-flex align-items-center">
                       <h5 className="card-title" style={{ fontWeight: "bold" }}>
@@ -78,7 +95,7 @@ function CreateCustomer() {
                     <div className="col-6 px-0">
                       <Field
                         type="text"
-                        style={{ borderRadius: 5 }}
+                        style={{ borderRadius: 5, width: "95%" }}
                         placeholder="Name"
                         name="name"
                       />
@@ -100,16 +117,11 @@ function CreateCustomer() {
                       </p>
                     </div>
                     <div className="col-6 px-0">
-                      <DatePicker
-                        onChange={(date) => handleDate(date.target.value)}
-                        dateFormat="dd/MM/yyyy"
+                      <Field
+                        type="date"
                         placeholderText="Date of birth"
                         name="dateOfBirth"
-                        showMonthDropdown
-                        showYearDropdown
-                        dropdownMode="select"
-                        defaultValue={new Date()}
-                        style={{ borderRadius: 5 }}
+                        style={{ borderRadius: 5, width: "95%" }}
                       />
                       <ErrorMessage
                         name="dateOfBirth"
@@ -131,7 +143,7 @@ function CreateCustomer() {
                     <div className="col-6 px-0">
                       <Field
                         type="text"
-                        style={{ borderRadius: 5 }}
+                        style={{ borderRadius: 5, width: "95%" }}
                         placeholder="Gender"
                         name="gender"
                       />
@@ -155,7 +167,7 @@ function CreateCustomer() {
                     <div className="col-6 px-0">
                       <Field
                         type="text"
-                        style={{ borderRadius: 5 }}
+                        style={{ borderRadius: 5, width: "95%" }}
                         placeholder="Identity"
                         name="identity"
                       />
@@ -179,7 +191,7 @@ function CreateCustomer() {
                     <div className="col-6 px-0">
                       <Field
                         type="text"
-                        style={{ borderRadius: 5 }}
+                        style={{ borderRadius: 5, width: "95%" }}
                         placeholder="Phone number"
                         name="phoneNumber"
                       />
@@ -203,7 +215,7 @@ function CreateCustomer() {
                     <div className="col-6 px-0">
                       <Field
                         type="text"
-                        style={{ borderRadius: 5 }}
+                        style={{ borderRadius: 5, width: "95%" }}
                         placeholder="Email"
                         name="email"
                       />
@@ -227,7 +239,7 @@ function CreateCustomer() {
                     <div className="col-6 px-0">
                       <Field
                         type="text"
-                        style={{ borderRadius: 5 }}
+                        style={{ borderRadius: 5, width: "95%" }}
                         placeholder="Address"
                         name="address"
                       />
@@ -249,9 +261,9 @@ function CreateCustomer() {
                       <Field
                         name="typeCustomer"
                         render={() => (
-                          <select style={{ borderRadius: 5, width: "94%" }}>
-                            {TypeCustomer.map((type) => (
-                              <option value={type.name} index={type.id}>
+                          <select style={{ borderRadius: 5, width: "95%" }}>
+                            {customerTypeList.map((type) => (
+                              <option value={type.id} index={type.id}>
                                 {type.name}
                               </option>
                             ))}
@@ -260,7 +272,11 @@ function CreateCustomer() {
                       />
                     </div>
                   </div>
-                  <input type="submit" class="btn btn-primary" value="Add" />
+                  <input
+                    type="submit"
+                    className="btn btn-primary"
+                    value="Add"
+                  />
                 </div>
               </div>
             </Form>

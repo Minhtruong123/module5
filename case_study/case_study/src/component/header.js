@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -41,11 +42,11 @@ function Header() {
           </div>
           <div>
             <p className="text-start">
-              103 – 105 Đường Võ Nguyên Giáp, Phường Khuê Mỹ, Quận Ngũ hành
-              Sơn, Tp. Đà Nẵng, Việt Nam
+              103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son
+              District, Danang City, Vietnam
             </p>
             <p className="text-start ps-2">
-              <span style={{color:"green"}}>7.0 km</span> từ Sân bay Quốc tế Đà Nẵng
+              <span style={{ color: "green" }}>7.0 km</span> from Danang Airport
             </p>
           </div>
         </div>
@@ -53,13 +54,13 @@ function Header() {
         <div className="col-3 pt-3">
           <div className="d-flex">
             <div className="pe-2">
-              <i style={{color:"green"}} class="fas fa-phone"></i>
+              <i style={{ color: "green" }} className="fas fa-phone"></i>
             </div>
             <div>+84-905-551-127</div>
           </div>
           <div className="d-flex pt-3">
             <div className="pe-2">
-              <i style={{color:"green"}} class="fas fa-envelope"></i>
+              <i style={{ color: "green" }} className="fas fa-envelope"></i>
             </div>
             <div>duongminhtruong1234@gmail.com</div>
           </div>
@@ -71,13 +72,13 @@ function Header() {
         style={{ backgroundColor: "rgb(45, 111, 99)" }}
       >
         <div className="container-fluid" style={{ paddingLeft: "4%" }}>
-          <a
+          <Link
             style={{ width: "5%", height: "5%" }}
             className="navbar-brand py-0"
-            href="#"
+            to="/"
           >
             <img width="100%" height="5%" src="/img/FURAMA (1).png" alt="" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -89,27 +90,24 @@ function Header() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div
-            className="collapse navbar-collapse"
-            id="navbarSupportedContent"
-          >
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item" style={{ height: "50px" }}>
-                <a
+                <Link
                   className="nav-link furama py-0 d-flex justify-content-center align-items-center px-3"
                   aria-current="page"
-                  href="#"
+                  to="/"
                 >
                   Furama
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link furama py-0 d-flex justify-content-center align-items-center px-3"
-                  href="/case_study/case_study/prototype/facility.html"
+                  to="/facility"
                 >
                   Facilities
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a
@@ -153,9 +151,9 @@ function Header() {
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to={"/customer"}>
                       Customer
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -163,12 +161,12 @@ function Header() {
             <form className="d-flex" role="search">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link furama py-0 d-flex justify-content-center align-items-center px-3"
-                    href="#"
+                    to={"/contract"}
                   >
-                    Contact
-                  </a>
+                    Contract
+                  </Link>
                 </li>
               </ul>
             </form>

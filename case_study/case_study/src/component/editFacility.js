@@ -1,18 +1,40 @@
-import { Component } from "react";
+import { Component, useEffect } from "react";
 import { useState } from "react";
-import FreeService from "./FreeService";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Formik, Form } from "formik";
+import * as facilityService from "../service/facilityService";
+import { useParams } from "react-router-dom";
 
 function EditFacility() {
-  const [type, setType] = useState("Villa");
+  const [facilityData,setFacilityData] = useState()
+  const [type, setType] = useState();
+  const [typeRoomList, setTypeRoomList] = useState([]);
+  const [freeServiceList, setFreeServiceList] = useState([]);
+  const param = useParams();
   const handleTypeChange = (event) => {
     setType(event);
   };
 
+  useEffect(() => {
+    const fetchApi = async () => {
+      let result = await facilityService.findAllTypeRoom();
+      let result2 = await facilityService.findAllFreeService();
+      let facility = await facilityService.findById(param.id);
+      setTypeRoomList(result);
+      setFreeServiceList(result2);
+      setFacilityData(facility);
+      setType(facility.typeRoom)
+    };
+    fetchApi();
+  }, []);
+
+  if (!facilityData){
+    return null;
+  }
+
   return (
     <>
-      <div className="container-fluid px-0 mt-5 position-relative">
+      <div className="container-fluid px-0 position-relative">
         <img
           src="https://furamavietnam.com/wp-content/uploads/2018/08/banner01.jpg?id=1433"
           alt=""
@@ -27,34 +49,41 @@ function EditFacility() {
         <div className="col-12">
           <Formik
             initialValues={{
-              name: "",
-              typeRoom: "",
-              roomSize: "",
-              img: "",
-              price: "",
-              roomStandard: "",
-              floor: "",
-              poolArea: "",
-              description: "",
-              freeService: "",
+              nameFacility: facilityData.nameFacility,
+              typeRoom: facilityData.typeRoom,
+              roomSize: facilityData.roomSize,
+              img: facilityData.img,
+              price: facilityData.price,
+              roomStandard: facilityData.roomStandard,
+              floor: facilityData.floor,
+              poolArea: facilityData.poolArea,
+              description: facilityData.description,
+              freeService: facilityData.freeService,
             }}
-            validationSchema={Yup.object({
-              name: Yup.string()
-                .required("Required.")
-                .matches(/^[a-zA-Z ]*$/, "Must not contain numbers"),
-              roomSize: Yup.string().required("Required."),
-              img: Yup.string().required("Required."),
-              price: Yup.string().required("Required."),
-              roomStandard: Yup.string().required("Required."),
-              floor: Yup.string()
-                .required("Required.")
-                .matches(/^[1-9]\d*$/, "Must be a positive integer."),
-              poolArea: Yup.string()
-                .required("Required.")
-                .matches(/^[1-9]\d*$/, "Must be a positive integer."),
-              description: Yup.string().required("Required."),
-            })}
-            onSubmit={(values, { setSubmitting }) => {}}
+            // validationSchema={Yup.object({
+            //   nameFacility: Yup.string()
+            //     .required("Required.")
+            //     .matches(/^[a-zA-Z ]*$/, "Must not contain numbers"),
+            //   roomSize: Yup.string().required("Required."),
+            //   img: Yup.string().required("Required."),
+            //   price: Yup.string().required("Required."),
+            //   roomStandard: Yup.string().required("Required."),
+            //   floor: Yup.string()
+            //     .required("Required.")
+            //     .matches(/^[1-9]\d*$/, "Must be a positive integer."),
+            //   poolArea: Yup.string()
+            //     .required("Required.")
+            //     .matches(/^[1-9]\d*$/, "Must be a positive integer."),
+            //   description: Yup.string().required("Required."),
+            // })}
+            onSubmit={(values, {}) => {
+              const editFacility = async () => {
+                values.typeRoom= type;
+                console.log(values);
+                await facilityService.editFacility(facilityData?.id,values);
+              };
+              editFacility();
+            }}
           >
             <Form action="" className="d-flex justify-content-center">
               <div
@@ -82,15 +111,16 @@ function EditFacility() {
                         type="text"
                         style={{ borderRadius: 5 }}
                         placeholder="Name"
-                        name="name"
+                        name="nameFacility"
                       />
                       <ErrorMessage
-                        name="name"
+                        name="nameFacility"
                         component="span"
                         className="form-err"
                       />
                     </div>
                   </div>
+
                   <div className="d-flex mb-3 row">
                     <div className="col-6 pe-0 d-flex align-items-center">
                       <p className="card-text" style={{ marginRight: 75 }}>
@@ -107,9 +137,11 @@ function EditFacility() {
                               handleTypeChange(event.target.value)
                             }
                           >
-                            <option value="Villa">Villa</option>
-                            <option value="House">House</option>
-                            <option value="Room">Room</option>
+                            {typeRoomList.map((typeRoom, index) => (
+                              <option key={index} value={typeRoom.id}>
+                                {typeRoom.name}
+                              </option>
+                            ))}
                           </select>
                         )}
                       />
@@ -189,7 +221,7 @@ function EditFacility() {
                   </div>
 
                   {/* type option */}
-                  {type === "Villa" && (
+                  {type == 1 && (
                     <div>
                       <div className="d-flex mb-3 row">
                         <div className="col-6 pe-0 d-flex align-items-center">
@@ -280,19 +312,19 @@ function EditFacility() {
                     </div>
                   )}
 
-                  {type === "House" && (
+                  {type == 2 && (
                     <div>
                       <div className="d-flex mb-3 row">
                         <div className="col-6 pe-0 d-flex align-items-center">
                           <p className="card-text d-flex align-items-center">
-                            Room Standard
+                            House Standard
                           </p>
                         </div>
                         <div className="col-6 px-0">
                           <Field
                             type="text"
                             style={{ borderRadius: 5 }}
-                            placeholder="Room Standard"
+                            placeholder="House Standard"
                             name="roomStandard"
                           />
                           <ErrorMessage
@@ -311,14 +343,11 @@ function EditFacility() {
                         </div>
                         <div className="col-6 px-0">
                           <Field
+                            as="textarea"
+                            id="topic"
                             name="description"
-                            render={() => (
-                              <textarea
-                                style={{ borderRadius: 5, width: "93%" }}
-                                placeholder="Describe"
-                              />
-                            )}
-                          />
+                            style={{ borderRadius: 5, width: "93%" }}
+                          ></Field>           
                           <ErrorMessage
                             name="description"
                             component="span"
@@ -329,7 +358,7 @@ function EditFacility() {
                     </div>
                   )}
 
-                  {type === "Room" && (
+                  {type == 3 && (
                     <div>
                       <div className="d-flex mb-3 row">
                         <div className="col-6 pe-0 d-flex align-items-center">
@@ -342,8 +371,10 @@ function EditFacility() {
                             name="freeService"
                             render={() => (
                               <select style={{ borderRadius: 5, width: "94%" }}>
-                                {FreeService.map((service, index) => (
-                                  <option key={index}>{service.name}</option>
+                                {freeServiceList.map((service, index) => (
+                                  <option key={index} value={service.id}>
+                                    {service.name}
+                                  </option>
                                 ))}
                               </select>
                             )}
