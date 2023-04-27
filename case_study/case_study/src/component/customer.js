@@ -35,18 +35,165 @@ const Customer = () => {
 
       <div className="row mx-0 mt-5 contain" style={{ height: "500px" }}>
         <div className="col-12 px-0">
+          <div
+            className="row bg-light mb-5 pe-0 mx-0"
+            style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)" }}
+          >
+            <div
+              className="hideFilter col-2 fs-5 d-flex justify-content-center align-items-center"
+              style={{
+                borderTop: "1px solid rgb(198, 197, 197)",
+                fontFamily: "sans-serif",
+              }}
+            >
+              HIDE FILTERS
+            </div>
+            <div
+              className="col-6"
+              style={{ borderTop: "1px solid rgb(198, 197, 197)" }}
+            >
+              <div>
+                <div className="container mt-0">
+                  <div className="section-sort clearfix">
+                    <h4
+                      className="title-sort"
+                      style={{
+                        height: "64px",
+                        marginTop: "0",
+                        lineHeight: "64px",
+                        marginRight: "10px",
+                        fontWeight: "normal",
+                        fontFamily: "sans-serif",
+                      }}
+                    >
+                      Sort by:
+                    </h4>
+                    <ul
+                      style={{ fontFamily: "sans-serif" }}
+                      className="sort-bar clearfix block-sm"
+                    >
+                      <li className="sort-by-name">
+                        <a class="sort-by-container" href="#">
+                          <span>name</span>
+                        </a>
+                      </li>
+                      <li className="sort-by-price">
+                        <a className="sort-by-container" href="#">
+                          <span>price</span>
+                        </a>
+                      </li>
+                      <li className="sort-by-rating active">
+                        <a class="sort-by-container" href="#">
+                          <span>duration</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <ul className="tiles-swap clearfix block-sm">
+                      <li className="swap-list active">
+                        <a href="#">
+                          <i class="fa fa-list-ul"></i>
+                        </a>
+                      </li>
+                      <li className="swap-grid">
+                        <a href="#">
+                          <i className="fa fa-th-large"></i>
+                        </a>
+                      </li>
+                      <li class="swap-block">
+                        <a href="#">
+                          <i className="fa fa-th"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="col-2 d-flex align-items-center"
+              style={{
+                borderTop: "1px solid rgb(198, 197, 197)",
+                borderLeft: "1px solid rgb(198, 197, 197)",
+              }}
+            >
+              {/* Phân trang */}
+              <nav
+                className="d-flex justify-content-center"
+                aria-label="Page navigation example"
+              >
+                <ul className="pagination">
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="#"
+                      style={{ border: "none" }}
+                    >
+                      Previous
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="#"
+                      style={{ border: "none" }}
+                    >
+                      1
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="#"
+                      style={{ border: "none" }}
+                    >
+                      2
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="#"
+                      style={{ border: "none" }}
+                    >
+                      3
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a
+                      className="page-link"
+                      href="#"
+                      style={{ border: "none" }}
+                    >
+                      Next
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div className="col-2 px-0">
+              <Link to="/createCustomer">
+                <button
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundColor: "#2b7f74",
+                  }}
+                  type="button"
+                  className="btn create-facility"
+                >
+                  Create new customer
+                </button>
+              </Link>
+            </div>
+          </div>
           <h2
             className="mb-3"
-            style={{ color: "#cbbe73", fontSize: "27px", textAlign: "center" }}
+            style={{ color: "#cbbe73", fontSize: 27, textAlign: "center" }}
           >
             Customer List
           </h2>
-          <Link
-            to={"/createCustomer"}
-            className="btn btn-primary float-start my-3 ms-5"
-          >
-            Create New Customer
-          </Link>
           <table className="table table-border table-striped">
             <thead>
               <tr>

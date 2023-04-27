@@ -9,6 +9,7 @@ function AddFacility() {
   const [type, setType] = useState(1);
   const [typeRoomList, setTypeRoomList] = useState([]);
   const [freeServiceList, setFreeServiceList] = useState([]);
+
   const handleTypeChange = (event) => {
     setType(event);
   };
@@ -33,7 +34,6 @@ function AddFacility() {
         <div className="position-absolute facility-title">ADD FACILITY</div>
       </div>
 
-
       <div
         className="row mt-3 mx-0 contain"
         style={{ height: "1000px", marginBottom: "150px" }}
@@ -52,22 +52,22 @@ function AddFacility() {
               description: "",
               freeService: "",
             }}
-            // validationSchema={Yup.object({
-            //   nameFacility: Yup.string()
-            //     .required("Required.")
-            //     .matches(/^[a-zA-Z ]*$/, "Must not contain numbers"),
-            //   roomSize: Yup.string().required("Required."),
-            //   img: Yup.string().required("Required."),
-            //   price: Yup.string().required("Required."),
-            //   roomStandard: Yup.string().required("Required."),
-            //   floor: Yup.string()
-            //     .required("Required.")
-            //     .matches(/^[1-9]\d*$/, "Must be a positive integer."),
-            //   poolArea: Yup.string()
-            //     .required("Required.")
-            //     .matches(/^[1-9]\d*$/, "Must be a positive integer."),
-            //   description: Yup.string().required("Required."),
-            // })}
+            validationSchema={Yup.object({
+              nameFacility: Yup.string()
+                .required("Required.")
+                .matches(/^[a-zA-Z ]*$/, "Must not contain numbers"),
+              roomSize: Yup.string().required("Required."),
+              img: Yup.string().required("Required."),
+              price: Yup.string().required("Required."),
+              roomStandard: Yup.string().required("Required."),
+              floor: Yup.string()
+                // .required("Required.")
+                .matches(/^[1-9]\d*$/, "Must be a positive integer."),
+              poolArea: Yup.string()
+                // .required("Required.")
+                .matches(/^[1-9]\d*$/, "Must be a positive integer."),
+              description: Yup.string().required("Required."),
+            })}
             onSubmit={(values, {}) => {
               const createFacility = async () => {
                 values.typeRoom = type;

@@ -5,8 +5,8 @@ function Header() {
   return (
     <>
       <div className="header-content row d-flex justify-content-center mx-0">
-        <div className="col-3">
-          <a className=" d-flex justify-content-center" href="#">
+        <div className="col-3 d-flex justify-content-center align-items-center">
+          <a className=" d-flex justify-content-center align-items-center" href="#">
             <img
               style={{ width: "30%" }}
               src="\img\Logo-FURAMA-RESORT-black.png"

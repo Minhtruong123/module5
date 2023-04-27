@@ -28,9 +28,6 @@ function CreateCustomer() {
           alt=""
         />
         <div className="position-absolute facility-title">CREATE CUSTOMER</div>
-        <Link to={"/customer"} className="btn btn-primary float-start">
-          Back to the List
-        </Link>
       </div>
 
       <div className="row mx-0 contain" style={{ height: "800px" }}>

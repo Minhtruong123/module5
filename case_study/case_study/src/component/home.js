@@ -178,11 +178,11 @@ function Home() {
         </div>
       </div>
       <div
-        className="row mx-0"
-        style={{ height: "100px", backgroundColor: "rgb(243, 242, 242)" }}
+        className="row mx-0 offerDeals"
+        style={{ height: "100px"}}
       >
         <div className="col-12 d-flex justify-content-center align-items-end pb-2">
-          <h2 style={{ color: "#cbbe73", fontSize: "27px" }}>OFFERS & DEAL</h2>
+          <h2 style={{ color: "white", fontSize: "35px" }}>OFFERS & DEAL</h2>
         </div>
       </div>
       <div className="row mx-0 pt-5" style={{ height: "250px" }}>
@@ -203,7 +203,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="mb-5">
+      <div className="mb-5 contain">
         <div className="row mx-0" style={{ height: "500px" }}>
           <div className="col-6">
             <img
@@ -314,6 +314,7 @@ function Home() {
           </div>
         </div>
       </div>
+
     </>
   );
 }

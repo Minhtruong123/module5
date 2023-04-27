@@ -16,8 +16,8 @@ function EditCustomer() {
   }
   useEffect(() => {
     const fetchApi = async () => {
-        const result = customerService.findById(param.id);
-        const result2= customerService.findAllTypeCustomer();
+        const result = await customerService.findById(param.id);
+        const result2= await customerService.findAllTypeCustomer();
         setCustomer(result);
         setTypeCustomerList(result2);
     }
@@ -47,7 +47,7 @@ function EditCustomer() {
               gender: customer.gender,
               identity: customer.identity,
               phoneNumber: customer.phoneNumber,
-              email: customer.gmail,
+              email: customer.email,
               address: customer.address,
               typeCustomer : customer.typeCustomer
             }}
@@ -117,16 +117,11 @@ function EditCustomer() {
                       </p>
                     </div>
                     <div className="col-6 px-0">
-                      <DatePicker
-                        onChange={(date) => handleDate(date.target.value)}
-                        dateFormat="dd/MM/yyyy"
+                    <Field
+                        type="date"
                         placeholderText="Date of birth"
                         name="dateOfBirth"
-                        showMonthDropdown
-                        showYearDropdown
-                        dropdownMode="select"
-                        defaultValue={new Date()}
-                        style={{ borderRadius: 5 }}
+                        style={{ borderRadius: 5, width: "94%" }}
                       />
                       <ErrorMessage
                         name="dateOfBirth"
